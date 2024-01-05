@@ -3,11 +3,9 @@ package menuArea;
 public enum DataKey {
     MAIN,
     BUGER,
-    FORZEN,
+    FROZEN,
     DRINK,
     BEER,
     ADD,
-    ORDER,
-
     CANCLE
 }

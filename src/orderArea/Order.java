@@ -2,8 +2,6 @@ package orderArea;
 import menuArea.Data;
 import menuArea.DataKey;
 import menuArea.Product;
-
-import java.util.HashMap;
 import java.util.Scanner;
 public class Order{
     //주문번호 대기표
@@ -22,15 +20,13 @@ public class Order{
 
     }
     //정수 입력 메소드
-    public int intScanner(){
+    public void intScanner(){
         num = sc.nextInt();
         sc.nextLine();
-        return num;
     }
     //문자 입력 메소드
-    public String stringScanner() {
+    public void stringScanner() {
         check = sc.nextLine();
-        return check;
     }
 
 
@@ -38,7 +34,7 @@ public class Order{
     //메뉴판 선택 메소드
     public void selectMain(int choose) {
             //배열로 관리
-            DataKey[] dateKeys = {DataKey.BUGER, DataKey.FORZEN, DataKey.DRINK, DataKey.BEER};
+            DataKey[] dateKeys = {DataKey.BUGER, DataKey.FROZEN, DataKey.DRINK, DataKey.BEER};
             if (choose >= 1 && choose <= 4) {
                 select(dateKeys[choose - 1], choose);
             } else if (choose == 5) {
@@ -59,10 +55,9 @@ public class Order{
                         Thread.currentThread().interrupt();
                         System.out.println("오류");
                     }
-                    return;
 
                 } else if (check.equals("2.메뉴판")) {
-                    return;
+                    System.out.println("메뉴로 돌아갑니다.");
                 }
             } else if (choose == 6) {
                 System.out.println("진행하던 주문을 취소하시겠습니까?\n" +
@@ -71,9 +66,8 @@ public class Order{
                 if (check.equals("1.확인")) {
                     data.setSum(0);
                     data.clearCart();
-                    return;
                 } else if (check.equals("1.취소")) {
-                    return;
+                    System.out.println("메뉴로 돌아갑니다.");
                 } else {
                     System.out.println("올바른 값을 입력하세요.");
                 }
@@ -83,7 +77,6 @@ public class Order{
     }
     //메뉴판 생성할때 중복되는 코드 관리 메소드
     public void select(DataKey datakey,int choose){
-        while(true) {
             System.out.println(data.getData(datakey));
             intScanner();
             orderList = data.getHash(choose, num);
@@ -93,17 +86,15 @@ public class Order{
                 data.addSum(orderList);
                 System.out.println(orderList.getName() + "가 추가되었습니다.");
                 data.getCartList(orderList);
-                break;
             }
             else if(check.equals("2.취소")){
-                break;
+                System.out.println("메뉴로 돌아갑니다.");
             }
             else{
                 System.out.println("정확한 답변을 해주세요!");
-                return;
             }
 
-        }
+
     }
 
 }

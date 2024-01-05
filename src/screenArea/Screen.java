@@ -1,9 +1,7 @@
 package screenArea;
-
 import menuArea.Data;
 import menuArea.DataKey;
 import orderArea.Order;
-
 import java.util.Scanner;
 
 public class Screen {
@@ -12,8 +10,11 @@ public class Screen {
     Order order = new Order();
     Scanner sc = new Scanner(System.in);
 
-    public Screen(){
-        //메인 메뉴판 출력
+    public Screen() {
+
+    }
+    //메인 메뉴판 출력
+    public void on(){
         while(true) {
             System.out.println(data.getData(DataKey.MAIN));
             int num = sc.nextInt();
