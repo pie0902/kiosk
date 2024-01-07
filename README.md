@@ -5,8 +5,8 @@
 키오스크 프로젝트는 스파르타 코딩클럽 내일배움캠프에 합류한 이후 첫 개인과제 입니다.
 콘솔창에 아래와 같이 출력이 되야합니다.
 *****************************
-[Original version]("https://github.com/pie0902/kiosk")<br/>
-[Singleton version]("https://github.com/pie0902/kiosk/tree/Singleton")
+[Original version](https://github.com/pie0902/kiosk)<br/>
+[Singleton version](https://github.com/pie0902/kiosk/tree/Singleton)
 *****************************
 
 
