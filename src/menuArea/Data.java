@@ -5,22 +5,15 @@ import java.util.HashMap;
 public class Data {
     //데이터 클래스
     private double sum;
+
     private List<Product> cart = new ArrayList<>();
     //메인 메뉴 출력 변수
     //메뉴판 리스트
     private HashMap<DataKey,StringBuffer> menuData = new HashMap<>();
-    //햄버거 메뉴판 리스트
-    private HashMap<Integer,Product> bugerList = new HashMap<>();
-    //아이스크림 메뉴판 리스트
-    private  HashMap<Integer,Product> frozenList = new HashMap<>();
-    //음료수 메뉴판 리스트
-    private  HashMap<Integer,Product> drinkkList = new HashMap<>();
-    //맥주 메뉴판 리스트
-    private   HashMap<Integer,Product> beerList = new HashMap<>();
-    //생성자
+
     public Data() {
         board();
-        productListData();
+//        productListData();
     }
 
     private void board(){
@@ -124,54 +117,65 @@ public class Data {
         cart.clear();
     }
 
-
-    //각 메뉴판에 메뉴 객체 추가
-    private void productListData() {
-        addProduct(bugerList, 1, "ShackBuger", "토마토, 양상추, 쉑소스가 토핑된 치즈버거", 6.9);
-        addProduct(bugerList, 2, "SmokeShack", "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거", 8.9);
-        addProduct(bugerList, 3, "Shroom Burger", "몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거", 9.4);
-        addProduct(bugerList, 4, "Cheeseburger", "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거", 6.9);
-        addProduct(bugerList, 5, "Hamburger", " 비프패티를 기반으로 야채가 들어간 기본버거", 5.4);
-        addProduct(frozenList, 1, "Chocolate IceCream", "초코맛 아이스크림", 1.9);
-        addProduct(frozenList, 2, "StrawberryIceCream ", "딸기맛 아이스크림", 1.9);
-        addProduct(frozenList, 3, "Oreo IceCream", "오레오 아이스크림", 2.9);
-        addProduct(drinkkList, 1, "Cola", "콜라", 1.5);
-        addProduct(drinkkList, 2, "Sprite", "스프라이트", 1.5);
-        addProduct(drinkkList, 3, "Fanta", "환타", 1.5);
-        addProduct(beerList, 1, "Cass", "카스", 2.9);
-        addProduct(beerList, 2, "Kloud", "클라우드", 2.9);
-        addProduct(beerList, 3, "Cozel", "코젤", 2.9);
-    }
-
-    //하위 메뉴판 리스트 객체 추가
-    private void addProduct(HashMap<Integer,Product> productHashMap,int key,String name,String description,double price) {
-        Product product = new Product(name,description,price);
-        productHashMap.put(key,product);
-    }
     //메뉴판 가져오는 메소드 (데이터키 enum의 상수를 인자로 받음)
     public StringBuffer getData(DataKey datakey){
         return menuData.get(datakey);
     }
+//    //상품메뉴판 리스트 객체 한번에 추가
 
-
-    //각 메뉴판에서 메뉴 객체 한개씩 가져오기
-    public Product getHash(int choose,int num){
-        switch (choose) {
-            case 1:
-                return bugerList.get(num);
-            case 2:
-                return frozenList.get(num);
-            case 3:
-                return drinkkList.get(num);
-            case 4:
-                return beerList.get(num);
-            default:
-                System.out.println("정해진 숫자만 입력하세요");
-                return null;
-        }
-    }
     //장바구니
     public void getCartList(Product product){
         cart.add(product);
     }
 }
+
+//    기존 코드
+
+//햄버거 메뉴판 리스트
+//    private HashMap<Integer,Product> bugerList = new HashMap<>();
+//    //아이스크림 메뉴판 리스트
+//    private  HashMap<Integer,Product> frozenList = new HashMap<>();
+//    //음료수 메뉴판 리스트
+//    private  HashMap<Integer,Product> drinkkList = new HashMap<>();
+//    //맥주 메뉴판 리스트
+//    private   HashMap<Integer,Product> beerList = new HashMap<>();
+//    //생성자
+
+//    private void addProduct(HashMap<Integer,Product> productHashMap,int key,String name,String description,double price) {
+//        Product product = new Product(name,description,price);
+//        productHashMap.put(key,product);
+//    }
+//    private void productListData() {
+//        addProduct(bugerList, 1, "ShackBuger", "토마토, 양상추, 쉑소스가 토핑된 치즈버거", 6.9);
+//        addProduct(bugerList, 2, "SmokeShack", "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거", 8.9);
+//        addProduct(bugerList, 3, "Shroom Burger", "몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거", 9.4);
+//        addProduct(bugerList, 4, "Cheeseburger", "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거", 6.9);
+//        addProduct(bugerList, 5, "Hamburger", " 비프패티를 기반으로 야채가 들어간 기본버거", 5.4);
+//        addProduct(frozenList, 1, "Chocolate IceCream", "초코맛 아이스크림", 1.9);
+//        addProduct(frozenList, 2, "StrawberryIceCream ", "딸기맛 아이스크림", 1.9);
+//        addProduct(frozenList, 3, "Oreo IceCream", "오레오 아이스크림", 2.9);
+//        addProduct(drinkkList, 1, "Cola", "콜라", 1.5);
+//        addProduct(drinkkList, 2, "Sprite", "스프라이트", 1.5);
+//        addProduct(drinkkList, 3, "Fanta", "환타", 1.5);
+//        addProduct(beerList, 1, "Cass", "카스", 2.9);
+//        addProduct(beerList, 2, "Kloud", "클라우드", 2.9);
+//        addProduct(beerList, 3, "Cozel", "코젤", 2.9);
+//    }
+
+
+//각 메뉴판에서 메뉴 객체 한개씩 가져오기
+//    public Product getHash(int choose,int num){
+//        switch (choose) {
+//            case 1:
+//                return bugerList.get(num);
+//            case 2:
+//                return frozenList.get(num);
+//            case 3:
+//                return drinkkList.get(num);
+//            case 4:
+//                return beerList.get(num);
+//            default:
+//                System.out.println("정해진 숫자만 입력하세요");
+//                return null;
+//        }
+//    }

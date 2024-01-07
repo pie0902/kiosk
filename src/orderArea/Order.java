@@ -1,11 +1,14 @@
 package orderArea;
 import menuArea.Data;
 import menuArea.DataKey;
+import menuArea.MenuTest;
 import menuArea.Product;
+
 import java.util.Scanner;
 public class Order{
     //주문번호 대기표
     int cnt = 0;
+
     Scanner sc = new Scanner(System.in);
     // 숫자로 선택할때 쓰는 int형 변수
     //선택할 숫자를 입력받을 변수
@@ -36,6 +39,7 @@ public class Order{
             //배열로 관리
             DataKey[] dateKeys = {DataKey.BUGER, DataKey.FROZEN, DataKey.DRINK, DataKey.BEER};
             if (choose >= 1 && choose <= 4) {
+                //data.java에 있는 하위 메뉴판 리스트에 들어있는 product 객체 가져오기
                 select(dateKeys[choose - 1], choose);
             } else if (choose == 5) {
                 System.out.println("아래와 같이 주문 하시겠습니까?\n[ Orders ]");
@@ -79,12 +83,13 @@ public class Order{
     public void select(DataKey datakey,int choose){
             System.out.println(data.getData(datakey));
             intScanner();
-            orderList = data.getHash(choose, num);
+//            orderList = data.getHash(choose, num);
+            orderList = MenuTest.getMenu().getHash(choose,num);
             System.out.println(orderList + "\n" + data.getData(DataKey.ADD));
             stringScanner();
             if(check.equals("1.확인")){
                 data.addSum(orderList);
-                System.out.println(orderList.getName() + "가 추가되었습니다.");
+                System.out.println(orderList.getName() + "가 장바구니에 추가되었습니다.");
                 data.getCartList(orderList);
             }
             else if(check.equals("2.취소")){
