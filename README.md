@@ -3,7 +3,7 @@
 *****************************
 ##### 📌수정사항
 
-[Original version](https://github.com/pie0902/kiosk) <- Now<br/>
+[Original version](https://github.com/pie0902/kiosk) Now<br/>
 [Singleton version](https://github.com/pie0902/kiosk/tree/Singleton)
 
 *****************************
