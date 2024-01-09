@@ -5,11 +5,9 @@ import orderArea.Order;
 import java.util.Scanner;
 
 public class Screen {
-
     Data data = new Data();
     Order order = new Order();
     Scanner sc = new Scanner(System.in);
-
     public Screen() {
 
     }
@@ -22,5 +20,6 @@ public class Screen {
             order.selectMain(num);
         }
     }
+
 
 }
