@@ -4,7 +4,8 @@
 ##### 📌수정사항
 
 [Original version](https://github.com/pie0902/kiosk) 📍<br/>
-[Singleton version](https://github.com/pie0902/kiosk/tree/Singleton)
+[Singleton version](https://github.com/pie0902/kiosk/tree/Singleton)<br/>
+[StringBuffer 수정 version](https://github.com/pie0902/kiosk/tree/StringBuffer)
 
 *****************************
 
