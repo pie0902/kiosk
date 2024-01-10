@@ -40,6 +40,9 @@ public class Order{
             DataKey[] dateKeys = {DataKey.BUGER, DataKey.FROZEN, DataKey.DRINK, DataKey.BEER};
             if (choose >= 1 && choose <= 4) {
                 //data.java에 있는 하위 메뉴판 리스트에 들어있는 product 객체 가져오기
+                data.getKey(dateKeys[choose-1]);
+                data.board(dateKeys[choose-1]);
+                System.out.println(choose);
                 select(dateKeys[choose - 1], choose);
             } else if (choose == 5) {
                 System.out.println("아래와 같이 주문 하시겠습니까?\n[ Orders ]");
@@ -85,6 +88,8 @@ public class Order{
             intScanner();
 //            orderList = data.getHash(choose, num);
             orderList = MenuTest.getMenu().getHash(choose,num);
+            data.getKey(DataKey.ADD);
+            data.board(DataKey.ADD);
             System.out.println(orderList + "\n" + data.getData(DataKey.ADD));
             stringScanner();
             if(check.equals("1.확인")){

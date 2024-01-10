@@ -8,8 +8,7 @@ public class MenuTest {
     private static HashMap<Integer,Product> frozenList;
     private static HashMap<Integer,Product> drinkkList;
     private static HashMap<Integer,Product> beerList;
-
-
+    
 
     private MenuTest(){
         bugerList = new HashMap<>();
