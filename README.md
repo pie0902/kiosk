@@ -1,7 +1,7 @@
 # Kiosk Project
 
 *****************************
-##### 📌수정사항(2024.01.07)
+##### 📌수정사항(2024.01.10)
 
 [Original version](https://github.com/pie0902/kiosk) <br/>
 [Singleton version](https://github.com/pie0902/kiosk/tree/Singeton)<br/>
