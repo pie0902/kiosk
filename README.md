@@ -4,79 +4,83 @@
 ##### 📌수정사항(2024.01.07)
 
 [Original version](https://github.com/pie0902/kiosk) <br/>
-[Singleton version](https://github.com/pie0902/kiosk/tree/Singeton) 📍
-
+[Singleton version](https://github.com/pie0902/kiosk/tree/Singeton) 
+[StringBuffer 수정 version](#)📍
 *****************************
 
 ------------------------------------
 #### 🟢 수정사항 설명
 
-김재환 튜터님께서 저에게 싱글턴 패턴이라는게 있다고 지나가는 말씀으로 조언을 해주셔서 ＂싱글톤 패턴이란 게 있구나＂라고만 알고 있었습니다.
-오늘은 일요일이라 [혼자 공부하는 자바]를 보면서 기초문법을 복습하고 있었는데, 싱글톤 패턴을 알려주는 페이지가 있어서 실습하고자 바로 적용해봤습니다.
-상품 객체를 생성하고 관리하는 방법을 수정했습니다.
+StringBuffer에 문자열을 담는 방법을 수정했습니다.
 ```
-package menuArea;
+ public void board(DataKey key){
+        menuText.delete(0,menuText.length());
+        switch(key) {
+            case BUGER:
+                menuText.append("""
+                        "SHAKESHACK BURGER 에 오신걸 환영합니다."
+                        아래 상품메뉴판을 보시고 상품을 골라 입력해주세요.
+                                        
+                        [ Burgers MENU ]
+                                        
+                        1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거
+                        2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거
+                        3. Shroom Burger | W 9.4 | 몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거
+                        4. Cheeseburger  | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거
+                        5. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거
+                        """);
 
-import java.util.HashMap;
-
-public class MenuTest {
-    private static MenuTest makeMenu = new MenuTest();
-    private static HashMap<Integer,Product> bugerList;
-    private static HashMap<Integer,Product> frozenList;
-    private static HashMap<Integer,Product> drinkkList;
-    private static HashMap<Integer,Product> beerList;
-
-
-
-    private MenuTest(){
-        bugerList = new HashMap<>();
-        frozenList = new HashMap<>();
-        drinkkList = new HashMap<>();
-        beerList = new HashMap<>();
-        productListData();
-
-    }
-    public static MenuTest getMenu() {
-        return makeMenu;
-    }
-    private void addProduct(HashMap<Integer,Product> productHashMap,int key,String name,String description,double price) {
-        Product product = new Product(name,description,price);
-        productHashMap.put(key,product);
-    }
-    private void productListData() {
-        addProduct(bugerList, 1, "ShackBuger", "토마토, 양상추, 쉑소스가 토핑된 치즈버거", 6.9);
-        addProduct(bugerList, 2, "SmokeShack", "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거", 8.9);
-        addProduct(bugerList, 3, "Shroom Burger", "몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거", 9.4);
-        addProduct(bugerList, 4, "Cheeseburger", "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거", 6.9);
-        addProduct(bugerList, 5, "Hamburger", " 비프패티를 기반으로 야채가 들어간 기본버거", 5.4);
-        addProduct(frozenList, 1, "Chocolate IceCream", "초코맛 아이스크림", 1.9);
-        addProduct(frozenList, 2, "StrawberryIceCream ", "딸기맛 아이스크림", 1.9);
-        addProduct(frozenList, 3, "Oreo IceCream", "오레오 아이스크림", 2.9);
-        addProduct(drinkkList, 1, "Cola", "콜라", 1.5);
-        addProduct(drinkkList, 2, "Sprite", "스프라이트", 1.5);
-        addProduct(drinkkList, 3, "Fanta", "환타", 1.5);
-        addProduct(beerList, 1, "Cass", "카스", 2.9);
-        addProduct(beerList, 2, "Kloud", "클라우드", 2.9);
-        addProduct(beerList, 3, "Cozel", "코젤", 2.9);
-    }
-
-    public Product getHash(int choose,int num){
-        switch (choose) {
-            case 1:
-                return bugerList.get(num);
-            case 2:
-                return frozenList.get(num);
-            case 3:
-                return drinkkList.get(num);
-            case 4:
-                return beerList.get(num);
+                menuData.put(DataKey.BUGER,menuText);
+                break;
+            case FROZEN:
+                menuText.append("""
+                        "SHAKESHACK BURGER 에 오신걸 환영합니다."
+                        아래 상품메뉴판을 보시고 상품을 골라 입력해주세요.
+                                        
+                        [ Frozen Custard MENU ]
+                                        
+                        1. Chocolate IceCream | W 1.9 | 초코맛 아이스크림
+                        2. StrawberryIceCream | W 1.9 | 딸기맛 아이스크림
+                        3. Oreo IceCream      | W 2.9 | 오레오 아이스크림
+                        """);
+                menuData.put(DataKey.FROZEN,menuText);
+                break;
+            case DRINK:
+                menuText.append("""
+                        "SHAKESHACK BURGER 에 오신걸 환영합니다."
+                        아래 상품메뉴판을 보시고 상품을 골라 입력해주세요.
+                                        
+                        [ Beer MENU ]
+                                        
+                        1. Cola   | W 1.5 | 콜라
+                        2. Sprite | W 1.5 | 스프라이트
+                        3. Fanta  | W 1.5 | 환타
+                        B""");
+                menuData.put(DataKey.DRINK,menuText);
+                break;
+            case BEER:
+                menuText.append("""
+                        1. Cass   | W 2.9 | 카스
+                        2. Kloud  | W 2.9 | 클라우드
+                        3. Kozel  | W 3.9 | 코젤
+                        """);
+                menuData.put(DataKey.BEER,menuText);
+                break;
+            case ADD:
+                menuText.append("""
+                                위 메뉴를 장바구니에 추가하시겠습니까?
+                                        1. 확인        2. 취소
+                        """
+                );
+                menuData.put(DataKey.ADD,menuText);
+                break;
             default:
-                System.out.println("정해진 숫자만 입력하세요");
-                return null;
+                System.out.println("에러");
+                break;
         }
+
     }
 
-}
 
 ```
 
@@ -84,5 +88,6 @@ public class MenuTest {
 
 #### 🟢 코드를 수정하고 느낀점
 
-싱글톤 패턴을 사용해봤지만 몇번 더 실습을 해서 완전히 저의것으로 만들어야겠습니다.
-제가 느끼기에 Data class 안에 있는 코드들이 더 깔끔해 보이긴 하지만 Product 객체를 여러번 생성 하는것은 똑같아서, 어떤 상황에서 어떻게 사용해야 더 실용적인지에 대해서 더 고민해보고 사용해봐야겠다고 생각이 듭니다.
+2차 개인 과제 제출을 내려고 코드를 살펴보다가 Buffer가 다시 눈에 들어왔습니다.
+이렇게 사용하는 게 아닌 것 같고 다시 보니깐 어제 자기 전에 본 강의에서 Buffer에 담긴 내용을 수정하는 방법을 본 게 기억이 나서 수정을 해봤습니다.
+결국 board 방법에 매개변수를 받게 됐지만 Buffer 객체를 여러 번 선언하지 않고 한 번만 수정해서 내용을 수정한 것에 의미를 두고 수정해봤습니다.
