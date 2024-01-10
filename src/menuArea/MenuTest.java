@@ -1,20 +1,3 @@
-# Kiosk Project
-
-*****************************
-##### 📌수정사항(2024.01.07)
-
-[Original version](https://github.com/pie0902/kiosk) <br/>
-[Singleton version](https://github.com/pie0902/kiosk/tree/Singeton) 📍
-
-*****************************
-
-------------------------------------
-#### 🟢 수정사항 설명
-
-김재환 튜터님께서 저에게 싱글턴 패턴이라는게 있다고 지나가는 말씀으로 조언을 해주셔서 ＂싱글톤 패턴이란 게 있구나＂라고만 알고 있었습니다.
-오늘은 일요일이라 [혼자 공부하는 자바]를 보면서 기초문법을 복습하고 있었는데, 싱글톤 패턴을 알려주는 페이지가 있어서 실습하고자 바로 적용해봤습니다.
-상품 객체를 생성하고 관리하는 방법을 수정했습니다.
-```
 package menuArea;
 
 import java.util.HashMap;
@@ -25,8 +8,7 @@ public class MenuTest {
     private static HashMap<Integer,Product> frozenList;
     private static HashMap<Integer,Product> drinkkList;
     private static HashMap<Integer,Product> beerList;
-
-
+    
 
     private MenuTest(){
         bugerList = new HashMap<>();
@@ -77,12 +59,3 @@ public class MenuTest {
     }
 
 }
-
-```
-
-*******************************
-
-#### 🟢 코드를 수정하고 느낀점
-
-싱글톤 패턴을 사용해봤지만 몇번 더 실습을 해서 완전히 저의것으로 만들어야겠습니다.
-제가 느끼기에 Data class 안에 있는 코드들이 더 깔끔해 보이긴 하지만 Product 객체를 여러번 생성 하는것은 똑같아서, 어떤 상황에서 어떻게 사용해야 더 실용적인지에 대해서 더 고민해보고 사용해봐야겠다고 생각이 듭니다.
