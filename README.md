@@ -13,6 +13,7 @@
 
 StringBuffer에 문자열을 담는 방법을 수정했습니다.
 ```
+ private StringBuffer menuText = new StringBuffer();
  public void board(DataKey key){
         menuText.delete(0,menuText.length());
         switch(key) {
